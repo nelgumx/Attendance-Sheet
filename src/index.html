@@ -78,6 +78,9 @@
     }
     tick(); setInterval(tick, 1000);
 
+    // PASTE your Apps Script web app URL here (the one ending in /exec)
+    const API_URL = 'PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE';
+
     const emp = document.getElementById('emp');
     const btnIn = document.getElementById('btnIn');
     const btnOut = document.getElementById('btnOut');
@@ -92,15 +95,23 @@
     }
 
     function submit(action) {
+      if (API_URL.indexOf('PASTE_') === 0) {
+        show({ ok: false, message: 'Setup needed: add your Apps Script URL in index.html.' });
+        return;
+      }
       msg.className = '';
       setBusy(true);
-      google.script.run
-        .withSuccessHandler(function (res) { setBusy(false); show(res); })
-        .withFailureHandler(function (err) {
+      // Sent as text/plain so the browser doesn't need a CORS preflight request
+      fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify({ input: emp.value, action: action })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { setBusy(false); show(res); })
+        .catch(function () {
           setBusy(false);
-          show({ ok: false, message: 'Something went wrong. Please try again.' });
-        })
-        .recordAttendance(emp.value, action);
+          show({ ok: false, message: 'Could not reach the server. Please try again.' });
+        });
     }
 
     btnIn.addEventListener('click', function () { submit('Time In'); });
