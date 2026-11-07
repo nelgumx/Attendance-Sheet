@@ -26,6 +26,19 @@ function doGet() {
     .addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
+/** Receives attendance clicks from the GitHub Pages version of the form. */
+function doPost(e) {
+  let result;
+  try {
+    const body = JSON.parse(e.postData.contents);
+    result = recordAttendance(body.input, body.action);
+  } catch (err) {
+    result = { ok: false, message: 'Bad request.' };
+  }
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 /** Run this ONCE from the editor to create the Attendance tab with headers. */
 function setupSheets() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
