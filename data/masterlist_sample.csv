@@ -1,0 +1,51 @@
+Employee ID,Full Name,Department,Position,Age,Gender,Date Hired,Email,Status
+EMP-001,Marco Thomas,Finance,Accountant,48,Male,2026-01-04,marco.thomas@example.com,Active
+EMP-002,Rachel Santos,Finance,Accountant,40,Female,2017-03-14,rachel.santos@example.com,Active
+EMP-003,Maria Ramos,Customer Service,Call Center Agent,42,Female,2019-09-19,maria.ramos@example.com,Active
+EMP-004,Noor Sharma,Administration,Admin Assistant,54,Female,2016-09-17,noor.sharma@example.com,Active
+EMP-005,Priya Rahman,Sales,Account Manager,51,Female,2018-02-28,priya.rahman@example.com,Active
+EMP-006,Maria Haddad,Administration,Admin Assistant,51,Female,2024-06-20,maria.haddad@example.com,Active
+EMP-007,Dennis Bautista,Customer Service,Customer Service Rep,49,Male,2026-05-11,dennis.bautista@example.com,Active
+EMP-008,Grace Thomas,Sales,Account Manager,52,Female,2026-07-04,grace.thomas@example.com,Active
+EMP-009,Vikram Nair,Operations,Operations Coordinator,55,Male,2017-04-20,vikram.nair@example.com,Active
+EMP-010,Cherry Al Mansoori,Customer Service,Customer Service Rep,29,Female,2025-03-31,cherry.almansoori@example.com,Active
+EMP-011,Neha Garcia,Logistics,Dispatcher,41,Female,2026-04-04,neha.garcia@example.com,Active
+EMP-012,Grace Al Falasi,IT,Systems Administrator,39,Female,2015-03-17,grace.alfalasi@example.com,Active
+EMP-013,Jun Verma,Customer Service,Call Center Agent,53,Male,2023-01-27,jun.verma@example.com,Active
+EMP-014,Ramon Haddad,Customer Service,Support Team Lead,54,Male,2026-02-24,ramon.haddad@example.com,Inactive
+EMP-015,Neha Ramos,Human Resources,HR Assistant,42,Female,2025-04-07,neha.ramos@example.com,Active
+EMP-016,Khalid Haddad,Sales,Account Manager,33,Male,2024-07-19,khalid.haddad@example.com,Active
+EMP-017,Priya Verma,Sales,Account Manager,45,Female,2017-03-02,priya.verma@example.com,Active
+EMP-018,Arjun Al Mansoori,Customer Service,Customer Service Rep,27,Male,2019-08-19,arjun.almansoori@example.com,Active
+EMP-019,Daniel Hussain,IT,IT Support Specialist,24,Male,2022-11-25,daniel.hussain@example.com,Active
+EMP-020,Fatima Santos,Administration,Office Coordinator,53,Female,2018-01-09,fatima.santos@example.com,Active
+EMP-021,Joel Bautista,Operations,Operations Assistant,54,Male,2021-07-09,joel.bautista@example.com,Active
+EMP-022,Arjun Ramos,Operations,Operations Coordinator,41,Male,2026-05-22,arjun.ramos@example.com,Active
+EMP-023,Grace Al Mansoori,IT,Systems Administrator,22,Female,2024-07-03,grace.almansoori@example.com,Active
+EMP-024,Hassan Verma,Administration,Document Controller,23,Male,2026-06-13,hassan.verma@example.com,Active
+EMP-025,Divya Ramos,Sales,Account Manager,42,Female,2017-09-21,divya.ramos@example.com,Active
+EMP-026,Mariam Bautista,Operations,Operations Coordinator,55,Female,2019-08-23,mariam.bautista@example.com,Active
+EMP-027,Hana Fernandez,Customer Service,Call Center Agent,36,Female,2016-07-23,hana.fernandez@example.com,Active
+EMP-028,Aisha Hussain,Operations,Operations Coordinator,25,Female,2025-02-18,aisha.hussain@example.com,Active
+EMP-029,Joel Haddad,Human Resources,HR Officer,55,Male,2019-11-27,joel.haddad@example.com,Active
+EMP-030,Omar Ramos,Operations,Operations Supervisor,39,Male,2024-07-16,omar.ramos@example.com,Active
+EMP-031,Priya Mendoza,Sales,Sales Executive,44,Female,2018-12-02,priya.mendoza@example.com,Active
+EMP-032,Mariam Dela Cruz,Logistics,Warehouse Supervisor,51,Female,2018-12-20,mariam.delacruz@example.com,Active
+EMP-033,Sarah Dela Cruz,Customer Service,Customer Service Rep,55,Female,2021-02-21,sarah.delacruz@example.com,Active
+EMP-034,Faisal Nair,Human Resources,HR Officer,51,Male,2022-05-30,faisal.nair@example.com,Active
+EMP-035,Ahmed Sharma,Operations,Operations Supervisor,35,Male,2017-06-17,ahmed.sharma@example.com,Active
+EMP-036,Neha Aquino,IT,Data Analyst,40,Female,2021-01-05,neha.aquino@example.com,Active
+EMP-037,Carlo Garcia,Finance,Accounts Assistant,32,Male,2017-05-18,carlo.garcia@example.com,Active
+EMP-038,Hassan Pillai,Operations,Operations Assistant,28,Male,2026-05-13,hassan.pillai@example.com,Inactive
+EMP-039,Noor Bautista,Finance,Accounts Assistant,42,Female,2018-08-15,noor.bautista@example.com,Active
+EMP-040,Noor Reyes,Human Resources,HR Assistant,38,Female,2024-04-18,noor.reyes@example.com,Active
+EMP-041,Mohammed Patel,IT,IT Support Specialist,41,Male,2017-10-04,mohammed.patel@example.com,Active
+EMP-042,Paolo Bautista,Administration,Admin Assistant,51,Male,2015-11-08,paolo.bautista@example.com,Active
+EMP-043,Divya Singh,IT,Data Analyst,51,Female,2024-07-22,divya.singh@example.com,Active
+EMP-044,Hassan Thomas,Sales,Account Manager,40,Male,2022-12-28,hassan.thomas@example.com,Active
+EMP-045,Arjun Santos,Sales,Sales Coordinator,43,Male,2021-06-30,arjun.santos@example.com,Active
+EMP-046,Sanjay Aquino,Logistics,Warehouse Supervisor,23,Male,2023-04-18,sanjay.aquino@example.com,Active
+EMP-047,Carlo Cruz,Finance,Accountant,24,Male,2022-09-12,carlo.cruz@example.com,Active
+EMP-048,Maria Al Falasi,Operations,Operations Supervisor,48,Female,2023-08-13,maria.alfalasi@example.com,Active
+EMP-049,Rachel Aquino,Logistics,Dispatcher,36,Female,2017-10-22,rachel.aquino@example.com,Active
+EMP-050,Paolo Santos,Logistics,Warehouse Supervisor,31,Male,2020-02-13,paolo.santos@example.com,Active

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance</title>
+  <style>
+    :root {
+      --bg: #f4f6f8; --card: #ffffff; --text: #1d2733; --muted: #6b7785;
+      --in: #1f8a5b; --out: #c2453a; --border: #d8dee5;
+      --ok-bg: #e6f5ee; --ok-text: #14633f; --err-bg: #fdecea; --err-text: #8f2a21;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12171d; --card: #1b232c; --text: #e8edf2; --muted: #93a0ad;
+        --border: #2e3a46; --ok-bg: #13362a; --ok-text: #8fe0b8;
+        --err-bg: #3b1a17; --err-text: #f5aaa3;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; padding: 16px;
+    }
+    .card {
+      width: 100%; max-width: 420px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;
+    }
+    h1 { font-size: 1.4rem; margin: 0 0 4px; }
+    .clock { font-size: 2rem; font-weight: 600; margin: 8px 0 2px; font-variant-numeric: tabular-nums; }
+    .date { color: var(--muted); margin-bottom: 22px; font-size: .95rem; }
+    label { display: block; font-size: .9rem; margin-bottom: 6px; color: var(--muted); }
+    input {
+      width: 100%; padding: 14px; font-size: 1rem; border-radius: 10px;
+      border: 1px solid var(--border); background: transparent; color: var(--text);
+    }
+    input:focus { outline: 2px solid #3b82f6; outline-offset: 1px; }
+    .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    button {
+      padding: 16px 8px; font-size: 1rem; font-weight: 600; color: #fff;
+      border: 0; border-radius: 10px; cursor: pointer;
+    }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    #btnIn { background: var(--in); }
+    #btnOut { background: var(--out); }
+    #msg { margin-top: 18px; padding: 12px 14px; border-radius: 10px; font-size: .95rem; display: none; }
+    #msg.ok { display: block; background: var(--ok-bg); color: var(--ok-text); }
+    #msg.err { display: block; background: var(--err-bg); color: var(--err-text); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Employee Attendance</h1>
+    <div class="clock" id="clock">--:--:--</div>
+    <div class="date" id="date"></div>
+
+    <label for="emp">Employee ID or Full Name</label>
+    <input id="emp" type="text" placeholder="e.g. EMP-001" autocomplete="off" autofocus>
+
+    <div class="buttons">
+      <button id="btnIn"  type="button">Time In</button>
+      <button id="btnOut" type="button">Time Out</button>
+    </div>
+
+    <div id="msg" role="status"></div>
+  </div>
+
+  <script>
+    // Live clock (display only - the REAL timestamp is taken by the server)
+    function tick() {
+      const now = new Date();
+      document.getElementById('clock').textContent =
+        now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Dubai' });
+      document.getElementById('date').textContent =
+        now.toLocaleDateString('en-GB', { timeZone: 'Asia/Dubai', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    }
+    tick(); setInterval(tick, 1000);
+
+    const emp = document.getElementById('emp');
+    const btnIn = document.getElementById('btnIn');
+    const btnOut = document.getElementById('btnOut');
+    const msg = document.getElementById('msg');
+
+    function setBusy(busy) { btnIn.disabled = busy; btnOut.disabled = busy; }
+
+    function show(result) {
+      msg.textContent = result.message;
+      msg.className = result.ok ? 'ok' : 'err';
+      if (result.ok) emp.value = '';
+    }
+
+    function submit(action) {
+      msg.className = '';
+      setBusy(true);
+      google.script.run
+        .withSuccessHandler(function (res) { setBusy(false); show(res); })
+        .withFailureHandler(function (err) {
+          setBusy(false);
+          show({ ok: false, message: 'Something went wrong. Please try again.' });
+        })
+        .recordAttendance(emp.value, action);
+    }
+
+    btnIn.addEventListener('click', function () { submit('Time In'); });
+    btnOut.addEventListener('click', function () { submit('Time Out'); });
+  </script>
+</body>
+</html>
